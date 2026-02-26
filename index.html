@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .button{
+            border-radius: 26px;
+            width: 352px;
+            height: 124px;
+            font-size: 30px;
+        }
+        .kjørebok{
+            background-color: rgb(81, 176, 207);
+            color: white;
+            border-color: white;
+        }
+        .avvik{
+            background-color: red;
+            color: white;
+            border-color: white;
+        }
+        .installasjon{
+            background-color: black;
+            color: white;
+            border-color: white;
+        }
+        .skadeoversikt{
+            background-color: gray;
+            color: white;
+            border-color: white
+        }
+        .kjørebok:hover,
+        .avvik:hover,
+        .installasjon:hover,
+        .skadeoversikt:hover{
+            border-color: rgb(119, 119, 253);
+        }
+        .header{
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            
+        }
+        .row{
+            display: grid;
+            grid-template-columns: 462px 1fr;
+            padding: 20px;
+        }
+        .coloumn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header"> 
+    <h1>
+        Linker Drammen
+    </h1>
+</div>
+<main>
+    <div class="row">
+        <div class="coloumn">
+            <a href="https://airtable.com/appyWcMZpOHYOyQTs/pagNM0GtUQotYUiDj/form">
+                <button class="button kjørebok"> Kjørebok </button>
+            </a>
+        </div>
+        <div class="coloumn">
+            <a href="https://airtable.com/appyWcMZpOHYOyQTs/paggTb6VDgyPZIUFK/form">
+                <button class="button avvik"> Avvik </button>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="coloumn">
+            <a href="https://airtable.com/appyWcMZpOHYOyQTs/pagU6kw7qKqpLGM6p/form">
+                <button class="button installasjon"> Installasjon</button>
+            </a>
+        </div>
+        <div class="coloumn">
+            <a href="https://airtable.com/appyWcMZpOHYOyQTs/shrmxjPKZsA8j4oC4">
+                <button class="button skadeoversikt"> Skadeoversikt</button>
+            </a>
+        </div>
+    </div>
+</main>
+</body>
+</html>
