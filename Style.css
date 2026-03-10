@@ -1,28 +1,17 @@
 
-.button{
-        border-radius: 26px;
-        width: 300px;
-        height: 100px;
-        font-size: 25px;
-    }
-    
-    h1{
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 40px;
-    }
+h1{
+    text-align: center;
+}
 
-    h3{
-        text-align: center;
-        margin-top: 40px;
-        margin-bottom: 40px;
-        font-family: 'Times New Roman', Times, serif;
-        font-weight: normal;
-        font-size: 200%;
-    }
+h3{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: normal;
+}
     
 @media (min-width: 601px){
-    .button{
+    .button,
+    button {
         border-radius: 26px;
         width: 300px;
         height: 100px;
@@ -30,23 +19,20 @@
     }
     
     h1{
-        text-align: center;
         margin-top: 40px;
         margin-bottom: 40px;
     }
 
     h3{
-        text-align: center;
         margin-top: 40px;
         margin-bottom: 40px;
-        font-family: 'Times New Roman', Times, serif;
-        font-weight: normal;
         font-size: 200%;
     }
 }
 
 @media (max-width: 600px){
-    .button{
+    .button,
+    button {
         border-radius: 26px;
         width: 600px;
         height: 200px;
@@ -54,17 +40,17 @@
     }
     
     h1{
-        text-align: center;
+        text-align: inherit;
         margin-top: 40px;
         margin-bottom: 40px;
     }
 
     h3{
-        text-align: center;
+        text-align: inherit;
         margin-top: 40px;
         margin-bottom: 40px;
-        font-family: 'Times New Roman', Times, serif;
-        font-weight: normal;
+        font-family: inherit;
+        font-weight: inherit;
         font-size: 400%;
     }
 }
