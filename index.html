@@ -18,20 +18,77 @@
     </div>
     <div style="flex: 1"></div>
 </div>
-<main>
-    <div style="justify-self: center;">
-        <a href="Avdelinger/Drammen.html">
-            <button class="button avdeling">
-                Drammen
-            </button>
-        </a>
+
+<main class="button-column">
+    <div class="avdeling-wrapper">
+        <a href="Avdelinger/Drammen.html"><button class="button avdeling" type="button">Drammen</button></a>
+        <button class="edit" type="button" title="Logg inn">✏️</button>
     </div>
-    <div style="justify-self: center">
-        <a href="Avdelinger/StokkeSkienLarvik.html">
-            <button class="button avdeling">
-                Stokke/Skien/Larvik
-            </button>
-        </a>
+    <div class="avdeling-wrapper">
+        <a href="Avdelinger/StokkeSkienLarvik.html"><button class="button avdeling" type="button">Stokke/Skien/Larvik</button></a>
+        <button class="edit" type="button" title="Logg inn">✏️</button>
     </div>
 </main>
+
+<div id="login-modal" class="login-modal" hidden>
+  <div class="login-backdrop"></div>
+  <div class="login-card">
+    <button class="login-close" type="button" aria-label="Lukk">✕</button>
+    <h2>Logg inn</h2>
+    <input id="login-user" type="text" placeholder="Brukernavn" autocomplete="username">
+    <input id="login-pass" type="password" placeholder="Passord" autocomplete="current-password">
+    <button id="login-submit" type="button">Logg inn</button>
+  </div>
+</div>
+
+<script>
+  const loginModal = document.getElementById('login-modal');
+  const loginButtons = document.querySelectorAll('.edit');
+  const closeBtn = loginModal.querySelector('.login-close');
+  const backdrop = loginModal.querySelector('.login-backdrop');
+  let currentPageHref = null;
+
+  function openLogin() { loginModal.hidden = false; }
+  function closeLogin() { loginModal.hidden = true; }
+
+  loginButtons.forEach(btn => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const wrapper = event.currentTarget.closest('.avdeling-wrapper');
+      const primaryLink = wrapper ? wrapper.querySelector('a[href]') : null;
+      currentPageHref = primaryLink ? primaryLink.getAttribute('href') : null;
+      openLogin();
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLogin);
+  backdrop.addEventListener('click', closeLogin);
+
+  document.getElementById('login-submit').addEventListener('click', () => {
+    const user = document.getElementById('login-user').value.trim();
+    const pass = document.getElementById('login-pass').value;
+    if (!user || !pass) {
+      alert('Fyll inn brukernavn og passord.');
+      return;
+    }
+
+    if (user === 'admin' && pass === 'admin') {
+      if (currentPageHref) {
+        const parts = currentPageHref.split('/');
+        const file = parts.pop();
+        const editFile = 'edit_' + file;
+        const editHref = parts.length ? parts.join('/') + '/' + editFile : editFile;
+        closeLogin();
+        window.location.href = editHref;
+        return;
+      }
+      alert('Innlogging vellykket. Ingen side å redigere.');
+      closeLogin();
+      return;
+    }
+
+    alert('Feil brukernavn eller passord.');
+  });
+</script>
+
 </body>

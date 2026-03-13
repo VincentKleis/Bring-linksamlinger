@@ -1,3 +1,6 @@
+.button{
+    cursor: pointer;
+}
 
 h1{
     text-align: center;
@@ -10,8 +13,7 @@ h3{
 }
     
 @media (min-width: 601px){
-    .button,
-    button {
+    .button{
         border-radius: 26px;
         width: 300px;
         height: 100px;
@@ -31,8 +33,7 @@ h3{
 }
 
 @media (max-width: 600px){
-    .button,
-    button {
+    .button{
         border-radius: 26px;
         width: 400px;
         height: 120px;
@@ -71,14 +72,99 @@ h3{
     color: white;
     border-color: white
 }
+
+/* avdeling knapper */
 .avdeling{
     background-color: #16bd3a;
     color: white;
-    border-color: white
+    border: 0;
+    position: relative;
+    padding-right: 2rem;
 }
+
 .avdeling:hover{
-    border-color: #016817;
+    border: 2px solid #049624;
 }
+
+.avdeling-wrapper { 
+    position: relative; 
+    display: inline-block; 
+    margin: 0.5rem 0; 
+    justify-self: center; 
+    margin-top: 0.5rem;}
+
+.edit {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    padding: 0;
+}
+.edit:hover {
+    transform: scale(1.1);
+}
+
+.login-modal {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0,0,0,0.4);
+    z-index: 999;
+}
+.login-modal[hidden] { display: none; }
+
+.login-backdrop {
+    position: absolute;
+    inset: 0;
+}
+
+.login-card {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    width: min(360px, 90vw);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.login-card input,
+.login-card button {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding: 0.6rem;
+    box-sizing: border-box;
+}
+
+.login-card input {
+    border: 1px solid #9c9c9c;
+    border-radius: 6px;
+}
+
+.login-card #login-submit {
+    border: 0;
+    background: #16bd3a;
+    color: #fff;
+    border-radius: 6px;
+}
+
+.login-close {
+    position: absolute;
+    top: 0.4rem;
+    left: 10rem;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+
 .kjørebok:hover,
 .avvik:hover,
 .installasjon:hover,
@@ -86,8 +172,61 @@ h3{
     border-color: rgb(25, 25, 196);
 }
 
+.button-column{
+    display: grid;
+    grid-template-columns: auto;
+    place-content: center center;
+}
+
+main {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+}
+
+main > .flex {
+    flex: 1;
+    min-width: 320px;
+}
+
+.edit-controls {
+    margin: 0;
+    width: min(300px, 90vw);
+    flex-shrink: 0;
+}
+
 .flex{
     display: flex;
     height: 120px;
     place-content: center center;
+}
+
+.edit-box {
+    border: 2px solid #16bd3a;
+    border-radius: 0.8rem;
+    padding: 1rem;
+    background: rgba(22, 189, 58, 0.08);
+}
+.edit-box h2 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.2rem;
+}
+.edit-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+.edit-action {
+    border: 1px solid #16bd3a;
+    background: white;
+    color: #16bd3a;
+    border-radius: 0.6rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.edit-action:hover {
+    background: #16bd3a;
+    color: white;
 }
